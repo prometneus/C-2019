@@ -1,0 +1,32 @@
+Task statement:
+General task:
+1) Implement in the C language sorting for an array of objects in
+accordance with the option.
+2) Select 7-10 data sets for sorting with dimensions from 100 and
+more (but not less than 100000). Detect (programmatically) the sorting time
+by each algorithm. Using the obtained points, plot
+the dependence of the sorting time on the dimension of the array for each
+of the sorting algorithms on the same coordinate axis. Make a conclusion about
+in which case, which of the methods is better to use. Graphs
+can be built in any of the application programs.
+Sorting options:
+a) Sorting by choice
+e) Pyramid sorting
+f) Quick sorting
+
+
+Постановка задачи:
+Общее задание:
+1) Реализовать на языке С сортировки для массива объектов в
+соответствии с вариантом.
+2) Выбрать 7-10 наборов данных для сортировки размерности от 100 и
+более (но не менее 100000). Засечь (программно) время сортировки
+каждым алгоритмом. По полученным точкам построить графики
+зависимости времени сортировки от размерности массива для каждого
+из алгоритмов сортировки на одной оси координат. Сделать вывод о
+том, в каком случае, какой из методов лучше применять. Графики
+можно строить в любой из прикладных программ.
+Варианты сортировок:
+а) Сортировка выбором
+д) Пирамидальная сортировка
+е) Быстрая сортировка
