@@ -1,0 +1,18 @@
+Task statement:
+The text stored in the file is given. The text consists of words separated by spaces – the word length is not more than 20 letters.
+Solve the simplest problem of creating a concordance.
+Implement the function of creating a binary tree ordered (in alphabetical order),
+where words and the number of their appearance in the specified text are stored in the nodes.
+Implement various ways of traversing the tree (in depth, in width, in reverse order, etc.) to display elements on the screen.
+Implement the task given in the variant as a separate recursive function:
+find the depth of the tree
+
+
+Постановка задачи:
+Дан текст, хранящийся в файле. Текст состоит из слов, разделенных пробелами – длина слова не более 20 букв.
+Решить простейшую задачу создания конкорданса.
+Реализовать функцию создания, упорядоченного (в алфавитном порядке) бинарного дерева,
+где в узлах хранятся слова и количество их появления в указанном тексте.
+Реализовать различные способы обхода дерева (в глубину, в ширину, в обратном порядке и т.д.) для вывода элементов на экран.
+Реализовать задачу, приведенную в варианте, в виде отдельной рекурсивной функции:
+найти глубину дерева
