@@ -1,0 +1,13 @@
+Task statement:
+A string of lowercase Latin letters is entered, the words are separated by spaces, the end of the input is a dot.
+When performing a task, the sentence is organized in the form of a two-connected list of words.
+The program must contain functions for generating the source list, displaying the list before and after modification,
+and implementing the task variant directly:
+Put an inversion of a longest word after it
+
+Постановка задачи:
+Вводится строка из строчных латинских букв, слова разделены пробелами, признак конца ввода - точка.
+При выполнении задания предложение организовать в виде двухсвязного списка слов.
+Программа должна содержать функции формирования исходного списка, вывода списка до и после модификации
+и реализации непосредственно варианта задания: 
+После максимального слова (в лексикографическом смысле) вставить элемент с его инверсией
