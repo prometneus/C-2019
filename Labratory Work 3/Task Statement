@@ -1,0 +1,15 @@
+Task Statement:
+Calculate the approximate value of the function by calculating the sum of a finite number
+of elements of the series in two ways, using different types of cycles:
+1) with the specified accuracy;
+2) for a given number of members of the series.
+The transition to the calculation method is implemented using the selection operator.
+
+Постановка задачи:
+Вычислить приближенное значение функции, вычислив сумму конечного числа 
+элементов ряда двумя способами, используя разные типы циклов: 
+1) с заданной точностью; 
+2) для заданного количества членов ряда. 
+Переход к способу вычисления реализовать с помощью оператора выбора.
+
+ln[(1 + x) / (1 - x)] = 2(x + x^3/3 + x^5/5 + ... + x^(2m - 1)/(2m - 1)] for x in [-1, 1]
