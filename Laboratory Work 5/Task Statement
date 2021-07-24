@@ -1,0 +1,13 @@
+Task statement:
+The size of the array is entered by the user at the execution stage. The array type is specified in the task.
+The array elements are entered using the keyboard. Write functions for filling in an array and outputting an array.
+Write a function for deleting the specified elements from the array. Do not use auxiliary arrays.
+Delete all elements whose value is more than 1.5 times greater than the arithmetic mean of all
+elements of the array
+
+Постановка задачи:
+Размер массива вводится пользователем на этапе выполнения. Тип массива указан в задании.
+Элементы массива вводятся с клавиатуры. Написать функции заполнения массива и вывода массива.
+Написать функцию удаления из массива указанных элементов. Вспомогательные массивы не использовать.
+Удалить все элементы, величина которых более чем в 1.5 раза превосходит среднее арифметическое всех
+элементов массива
