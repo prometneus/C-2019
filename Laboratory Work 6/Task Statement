@@ -1,0 +1,20 @@
+Task statement:
+An integer matrix of size m x n is given, where 2 <= m, n <= 10
+The program must be divided into several functions and must contain:
+1) the function of forming the source array;
+2) the output function of the source array;
+3) one or more functions that implement the computational part of the algorithm. 
+All functions must contain a list of parameters, and the array address must be passed as a function parameter.
+The main function must contain only function call statements
+Find the smallest modulo element in each row of the matrix and calculate their arithmetic mean
+
+
+Постановка задачи:
+Дана целочисленная матрица размера m x n, где 2 <= m,  n <= 10
+Программа должна быть разбита на несколько функций и обязательно содержать:
+1)	функцию формирования исходного массива;
+2)	функцию вывода исходного массива;
+3)	одну или более функций, реализующих вычислительную часть алгоритма. 
+Все функции должны содержать список параметров, причём адрес массива должен передаваться как параметр функции.
+Функция main должна содержать только операторы вызова функций
+Найти в каждой строке матрицы наименьший по модулю элемент и вычислить их среднее арифметическое
