@@ -1,0 +1,22 @@
+Task statement:
+The numeric array B contains k elements.
+The array elements and the threshold values X, Y are entered using the keyboard.
+Write routines for creating an array and displaying it on the screen.
+In the first task, you need to write a function for finding the maximum/minimum value corresponding to the variant,
+and in the second-the arithmetic mean of the elements specified in the condition
+("between" is strictly understood-not including the found positions).
+Both tasks should be implemented in one program.
+The arithmetic mean of the elements located up to the last minimum element.
+Real array
+
+
+Постановка задачи:
+Числовой массив В содержит k элементов.
+Элементы массива и пороговые значения X, Y вводятся с клавиатуры.
+Написать подпрограммы создания массива и вывода его на экран.
+В первом задании требуется написать функцию нахождения соответствующего варианту максимального/минимального значения,
+а во втором – среднего арифметического указанных в условии элементов
+(«между» понимать строго – не включая найденные позиции).
+Оба задания реализовать в одной программе.
+Среднее арифметическое элементов, расположенных до последнего минимального элемента.
+Массив вещественный
