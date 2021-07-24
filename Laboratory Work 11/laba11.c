@@ -65,34 +65,34 @@ List* reduction(List* head)
 		if (p == head && p->coefficient == 0 && p->next == NULL) head = NULL;
 		for (List* tmp = p->next; tmp != NULL;)
 		{
-			if ((p->coefficient == 0) && (p == head)) // Условие при котором перемещаем голову
+			if ((p->coefficient == 0) && (p == head)) //РЈСЃР»РѕРІРёРµ РїСЂРё РєРѕС‚РѕСЂРѕРј РїРµСЂРµРјРµС‰Р°РµРј РіРѕР»РѕРІСѓ
 			{
-				head = p->next; // перемещаем голову
+				head = p->next; //РџРµСЂРµРјРµС‰Р°РµРј РіРѕР»РѕРІСѓ
 				flag = 1;
 				save = p;
-				break;//Выход из цикла, чтобы не пропустить элемент
+				break; //Р’С‹С…РѕРґ РёР· С†РёРєР»Р°, С‡С‚РѕР±С‹ РЅРµ РїСЂРѕРїСѓСЃС‚РёС‚СЊ СЌР»РµРјРµРЅС‚
 			}
 			if (tmp->coefficient == 0)
 			{
 				buf->next = tmp->next;
 				save = tmp;
-				tmp = tmp->next; //Шаг цикла
+				tmp = tmp->next; //РЁР°Рі С†РёРєР»Р°
 				free(save);
 			}
 			else
 			{
 				if (p->degree == tmp->degree)
-				{//Алгоритм очистки лишнего элемента, который был учтен в сумме
+				{ //РђР»РіРѕСЂРёС‚Рј РѕС‡РёСЃС‚РєРё Р»РёС€РЅРµРіРѕ СЌР»РµРјРµРЅС‚Р°, РєРѕС‚РѕСЂС‹Р№ Р±С‹Р» СѓС‡С‚РµРЅ РІ СЃСѓРјРјРµ
 					p->coefficient += tmp->coefficient; 
 					buf->next = tmp->next;
 					save = tmp;
-					tmp = tmp->next; // Шаг цикла
+					tmp = tmp->next; //РЁР°Рі С†РёРєР»Р°
 					free(save);
 				}
 				else
 				{
 					buf = tmp; 
-					tmp = tmp->next; //Шаг цикла
+					tmp = tmp->next; //РЁР°Рі С†РёРєР»Р°
 				}
 			}
 		}
@@ -103,10 +103,10 @@ List* reduction(List* head)
 List* collecting(List* head, List* Head)
 {
 	List* HEAD = NULL;
-	for (List* p = head; p != NULL; p = p->next)//Первый список
+	for (List* p = head; p != NULL; p = p->next) //РџРµСЂРІС‹Р№ СЃРїРёСЃРѕРє
 	{
 		int found = 0;
-		for (List* h = Head; h != NULL; h = h->next)//Сравнение со вторым
+		for (List* h = Head; h != NULL; h = h->next) //РЎСЂР°РІРЅРµРЅРёРµ СЃРѕ РІС‚РѕСЂС‹Рј
 		{
 			if (p->degree == h->degree)
 			{
@@ -114,7 +114,7 @@ List* collecting(List* head, List* Head)
 				break;
 			}
 		}
-		if (found == 0)//Создание третьего из неповторяющихся элементов
+		if (found == 0) //РЎРѕР·РґР°РЅРёРµ С‚СЂРµС‚СЊРµРіРѕ РёР· РЅРµРїРѕРІС‚РѕСЂСЏСЋС‰РёС…СЃСЏ СЌР»РµРјРµРЅС‚РѕРІ
 		{
 			List* k = (List*)malloc(sizeof(List));
 			k->coefficient = p->coefficient;
@@ -126,7 +126,7 @@ List* collecting(List* head, List* Head)
 	return HEAD;
 }
 
-List* removehead(List* head)//Функция удаления списка через очистку головы списка
+List* removehead(List* head) //Р¤СѓРЅРєС†РёСЏ СѓРґР°Р»РµРЅРёСЏ СЃРїРёСЃРєР° С‡РµСЂРµР· РѕС‡РёСЃС‚РєСѓ РіРѕР»РѕРІС‹ СЃРїРёСЃРєР°
 {
 	List* p = NULL;
 	if (head != NULL)
