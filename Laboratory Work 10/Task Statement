@@ -1,0 +1,20 @@
+Task statement:
+a) A file f is given, the components of which are real numbers. Find:
+The arithmetic mean of the component of the file f.
+Write this value before the first positive element or at the end of the file if there are no positive elements in the file. 
+b) A text file f containing a program in C is given. Replace characters with words:
+‘ {'replace with" begin”
+’ } 'replace with" end”
+’ = 'replace with “:=” 
+Write the result of the conversion to a new g file.
+
+
+Постановка задачи:
+а) Дан файл f, компоненты которого являются действительными числами. Найти:
+Среднее арифметическое компонент файла f.
+Записать это значение перед первым положительным элементом или в конец файла, если положительных элементов в файле нет. 
+б) Дан текстовый файл f, содержащий программу на языке Си. Произвести замену символов на слова:
+‘{‘ заменить на “begin”
+‘}’ заменить на “end”
+‘=’ заменить на “:=” 
+Результат преобразования записать в новый файл g.
