@@ -53,14 +53,14 @@ void deletelist(List** list)
 	while (tmp) 
 	{
 		next = tmp->next;
-		tmp->prev = NULL;//Удаляем связь с предыдущим элементом
-		tmp->next = NULL;//Удаляем связь со следующим элементом
-		free(tmp);//Освобождаем элемент
-		tmp = next;//Шаг цикла
+		tmp->prev = NULL; //РЈРґР°Р»СЏРµРј СЃРІСЏР·СЊ СЃ РїСЂРµРґС‹РґСѓС‰РёРј СЌР»РµРјРµРЅС‚РѕРј
+		tmp->next = NULL; //РЈРґР°Р»СЏРµРј СЃРІСЏР·СЊ СЃРѕ СЃР»РµРґСѓСЋС‰РёРј СЌР»РµРјРµРЅС‚РѕРј
+		free(tmp); //РћСЃРІРѕР±РѕР¶РґР°РµРј СЌР»РµРјРµРЅС‚
+		tmp = next; //РЁР°Рі С†РёРєР»Р°
 	}
-	(*list)->head = NULL;//Удаляем голову списка
-	(*list)->tail = NULL;//Удаляем хвост списка
-	free(*list);//Освобождаем память
+	(*list)->head = NULL; //РЈРґР°Р»СЏРµРј РіРѕР»РѕРІСѓ СЃРїРёСЃРєР°
+	(*list)->tail = NULL; //РЈРґР°Р»СЏРµРј С…РІРѕСЃС‚ СЃРїРёСЃРєР°
+	free(*list); //РћСЃРІРѕР±РѕР¶РґР°РµРј РїР°РјСЏС‚СЊ
 	(*list) = NULL;
 }
 
@@ -101,28 +101,28 @@ List* task(List* lst)
 	Node* newNode = (Node*)malloc(sizeof(Node));
 	while (p)
 	{
-		if (strlen(str1) < (strlen(p->word)))//Сравниваем слова
+		if (strlen(str1) < (strlen(p->word))) //РЎСЂР°РІРЅРёРІР°РµРј СЃР»РѕРІР°
 		{
-			strcpy(str1, p->word);//Если новое слово оказалось длиннее, запоминаем его
-			pp = p;//Запоминаем укаазатель на слово
+			strcpy(str1, p->word); //Р•СЃР»Рё РЅРѕРІРѕРµ СЃР»РѕРІРѕ РѕРєР°Р·Р°Р»РѕСЃСЊ РґР»РёРЅРЅРµРµ, Р·Р°РїРѕРјРёРЅР°РµРј РµРіРѕ
+			pp = p; //Р—Р°РїРѕРјРёРЅР°РµРј СѓРєР°Р°Р·Р°С‚РµР»СЊ РЅР° СЃР»РѕРІРѕ
 		}
-		p = p->next;//Шаг цикла
+		p = p->next; //РЁР°Рі С†РёРєР»Р°
 	}
 
 	printf("\n");
-	for (int i = strlen(str1) - 1; i != -1; i--)//Инвертируем самое длинное слово
+	for (int i = strlen(str1) - 1; i != -1; i--) //РРЅРІРµСЂС‚РёСЂСѓРµРј СЃР°РјРѕРµ РґР»РёРЅРЅРѕРµ СЃР»РѕРІРѕ
 	{
 		str[j] = str1[i];
 		printf("%c", str[j]);
 		j++;
 	}
 	lst->size++;
-	if (!pp->next) pushBack(lst, strcpy(newNode, str));//Если самый длинный элемент последний, добавляем в хвост
+	if (!pp->next) pushBack(lst, strcpy(newNode, str)); //Р•СЃР»Рё СЃР°РјС‹Р№ РґР»РёРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚ РїРѕСЃР»РµРґРЅРёР№, РґРѕР±Р°РІР»СЏРµРј РІ С…РІРѕСЃС‚
 	else
 	{
 		p = pp->next;
-		strcpy(newNode->word, str);//Запись слова в новый узел списка
-		newNode->next = p;//Установление связей для вставляемого узла
+		strcpy(newNode->word, str); //Р—Р°РїРёСЃСЊ СЃР»РѕРІР° РІ РЅРѕРІС‹Р№ СѓР·РµР» СЃРїРёСЃРєР°
+		newNode->next = p; //РЈСЃС‚Р°РЅРѕРІР»РµРЅРёРµ СЃРІСЏР·РµР№ РґР»СЏ РІСЃС‚Р°РІР»СЏРµРјРѕРіРѕ СѓР·Р»Р°
 		newNode->prev = pp;
 		pp->next = newNode;
 		p->prev = newNode;
@@ -130,7 +130,7 @@ List* task(List* lst)
 	return lst;
 }
 
-void reversedisplay(List* lst) //Функция вывода в обратном порядке для проверки на потерю связей между элементами
+void reversedisplay(List* lst) //Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РІ РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ РґР»СЏ РїСЂРѕРІРµСЂРєРё РЅР° РїРѕС‚РµСЂСЋ СЃРІСЏР·РµР№ РјРµР¶РґСѓ СЌР»РµРјРµРЅС‚Р°РјРё
 {
 	Node* tmp = lst->tail;
 	while (tmp != NULL) 
@@ -145,7 +145,7 @@ int main(void)
 	List* lst;
 	lst = initialization();
 	create(&lst);
-	if (lst->size == 0)//Если список пуст
+	if (lst->size == 0) //Р•СЃР»Рё СЃРїРёСЃРѕРє РїСѓСЃС‚
 	{
 		printf("List is empty.\n");
 		exit(-3);
@@ -158,6 +158,6 @@ int main(void)
 	printf("\n\nReverse displaying:\n");
 	reversedisplay(lst);
 	printf("\n\n");
-	deletelist(&lst);//Удаляем список
+	deletelist(&lst); //РЈРґР°Р»СЏРµРј СЃРїРёСЃРѕРє
 	return 0;
 }
