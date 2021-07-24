@@ -8,9 +8,9 @@
 typedef struct Tree
 {
 	char word[20];
-	int occurence;//Ñ÷åò÷èê âñòðå÷àåìîñòè ñëîâà
-	struct Tree* left, * right, * parent;//Óêàçàòåëè äëÿ äåðåâà
-	struct Tree* next, * prev;//Óêàçàòåëè äëÿ äâóñâÿçíîãî ñïèñêà
+	int occurence; //Ð¡Ñ‡ÐµÑ‚Ñ‡Ð¸Ðº Ð²ÑÑ‚Ñ€ÐµÑ‡Ð°ÐµÐ¼Ð¾ÑÑ‚Ð¸ ÑÐ»Ð¾Ð²Ð°
+	struct Tree* left, * right, * parent; //Ð£ÐºÐ°Ð·Ð°Ñ‚ÐµÐ»Ð¸ Ð´Ð»Ñ Ð´ÐµÑ€ÐµÐ²Ð°
+	struct Tree* next, * prev; //Ð£ÐºÐ°Ð·Ð°Ñ‚ÐµÐ»Ð¸ Ð´Ð»Ñ Ð´Ð²ÑƒÑÐ²ÑÐ·Ð½Ð¾Ð³Ð¾ ÑÐ¿Ð¸ÑÐºÐ°
 }Tree;
 
 typedef struct List 
@@ -19,7 +19,7 @@ typedef struct List
 	Tree* head, * tail;
 }List;
 
-Tree* makeNode(char* word, Tree* parent)//Óçåë äåðåâà
+Tree* makeNode(char* word, Tree* parent) //Ð£Ð·ÐµÐ» Ð´ÐµÑ€ÐµÐ²Ð°
 {
 	Tree* tmp = (Tree*)malloc(sizeof(Tree));
 	tmp->left = NULL;
@@ -33,7 +33,7 @@ Tree* makeNode(char* word, Tree* parent)//Óçåë äåðåâà
 void AddTreeNode(Tree** root, char* word)
 {
 	Tree* tmp = NULL;
-	if (*root == NULL)//Åñëè äåðåâî ïóñòîå, íóæíî ñîçäàòü íîâîå è ïîìåñòèòü ïåðâîå ñëîâî â êîðåíü
+	if (*root == NULL) //Ð•ÑÐ»Ð¸ Ð´ÐµÑ€ÐµÐ²Ð¾ Ð¿ÑƒÑÑ‚Ð¾Ðµ, Ð½ÑƒÐ¶Ð½Ð¾ ÑÐ¾Ð·Ð´Ð°Ñ‚ÑŒ Ð½Ð¾Ð²Ð¾Ðµ Ð¸ Ð¿Ð¾Ð¼ÐµÑÑ‚Ð¸Ñ‚ÑŒ Ð¿ÐµÑ€Ð²Ð¾Ðµ ÑÐ»Ð¾Ð²Ð¾ Ð² ÐºÐ¾Ñ€ÐµÐ½ÑŒ
 	{
 		*root = makeNode(word, NULL);
 		return;
@@ -41,20 +41,20 @@ void AddTreeNode(Tree** root, char* word)
 	tmp = *root;
 	while (tmp) 
 	{
-		if (strcmp(word, tmp->word) > 0)//Åñëè ñëîâî äëèííåå, èäåì âïðàâî
+		if (strcmp(word, tmp->word) > 0) //Ð•ÑÐ»Ð¸ ÑÐ»Ð¾Ð²Ð¾ Ð´Ð»Ð¸Ð½Ð½ÐµÐµ, Ð¸Ð´ÐµÐ¼ Ð²Ð¿Ñ€Ð°Ð²Ð¾
 		{
 			if (tmp->right) 
 			{
-				tmp = tmp->right;//Åñëè óæå åñòü óçåë ñïðàâà, èäåì äàëüøå
+				tmp = tmp->right; //Ð•ÑÐ»Ð¸ ÑƒÐ¶Ðµ ÐµÑÑ‚ÑŒ ÑƒÐ·ÐµÐ» ÑÐ¿Ñ€Ð°Ð²Ð°, Ð¸Ð´ÐµÐ¼ Ð´Ð°Ð»ÑŒÑˆÐµ
 				continue;
 			}
-			else //Äîøëè äî ïðàâîãî ëèñòà, äîáàâëÿåì íîâûé óçåë 
+			else //Ð”Ð¾ÑˆÐ»Ð¸ Ð´Ð¾ Ð¿Ñ€Ð°Ð²Ð¾Ð³Ð¾ Ð»Ð¸ÑÑ‚Ð°, Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ð½Ð¾Ð²Ñ‹Ð¹ ÑƒÐ·ÐµÐ» 
 			{
 				tmp->right = makeNode(word, tmp);
 				return;
 			}
 		}
-		else if (strcmp(word, tmp->word) < 0) //Åñëè ñëîâî êîðî÷å, èäåì âëåâî
+		else if (strcmp(word, tmp->word) < 0) //Ð•ÑÐ»Ð¸ ÑÐ»Ð¾Ð²Ð¾ ÐºÐ¾Ñ€Ð¾Ñ‡Ðµ, Ð¸Ð´ÐµÐ¼ Ð²Ð»ÐµÐ²Ð¾
 		{
 			if (tmp->left) 
 			{
@@ -75,17 +75,17 @@ void AddTreeNode(Tree** root, char* word)
 	}
 }
 
-void StraightDeep(Tree* root)//Ïðÿìîé îáõîä äåðåâà â ãëóáèíó
+void StraightDeep(Tree* root) //ÐŸÑ€ÑÐ¼Ð¾Ð¹ Ð¾Ð±Ñ…Ð¾Ð´ Ð´ÐµÑ€ÐµÐ²Ð° Ð² Ð³Ð»ÑƒÐ±Ð¸Ð½Ñƒ
 {
 	if (root) 
 	{
-		printf("%s(%d)\n", root->word, root->occurence);//Âûâîä ìåñòíîãî êîðíÿ íà ýêðàí
-		StraightDeep(root->left);//Ðåêóðñèâíûé âûçîâ äëÿ ëåâîãî ïîääåðåâà
-		StraightDeep(root->right);//Ðåêóðñèâíûé âûçîâ äëÿ ïðàâîãî ïîääåðåâà
+		printf("%s(%d)\n", root->word, root->occurence); //Ð’Ñ‹Ð²Ð¾Ð´ Ð¼ÐµÑÑ‚Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ñ€Ð½Ñ Ð½Ð° ÑÐºÑ€Ð°Ð½
+		StraightDeep(root->left); //Ð ÐµÐºÑƒÑ€ÑÐ¸Ð²Ð½Ñ‹Ð¹ Ð²Ñ‹Ð·Ð¾Ð² Ð´Ð»Ñ Ð»ÐµÐ²Ð¾Ð³Ð¾ Ð¿Ð¾Ð´Ð´ÐµÑ€ÐµÐ²Ð°
+		StraightDeep(root->right); //Ð ÐµÐºÑƒÑ€ÑÐ¸Ð²Ð½Ñ‹Ð¹ Ð²Ñ‹Ð·Ð¾Ð² Ð´Ð»Ñ Ð¿Ñ€Ð°Ð²Ð¾Ð³Ð¾ Ð¿Ð¾Ð´Ð´ÐµÑ€ÐµÐ²Ð°
 	}
 }
 
-void SymmetricDeep(Tree* root)//Ñèììåòðè÷íûé îáõîä äåðåâà â ãëóáèíó
+void SymmetricDeep(Tree* root) //Ð¡Ð¸Ð¼Ð¼ÐµÑ‚Ñ€Ð¸Ñ‡Ð½Ñ‹Ð¹ Ð¾Ð±Ñ…Ð¾Ð´ Ð´ÐµÑ€ÐµÐ²Ð° Ð² Ð³Ð»ÑƒÐ±Ð¸Ð½Ñƒ
 {
 	if (root) 
 	{
@@ -95,7 +95,7 @@ void SymmetricDeep(Tree* root)//Ñèììåòðè÷íûé îáõîä äåðåâà â ãëóáèíó
 	}
 }
 
-void ReverseDeep(Tree* root)//Îáðàòíûé îáõîä äåðåâà â ãëóáèíó
+void ReverseDeep(Tree* root) //ÐžÐ±Ñ€Ð°Ñ‚Ð½Ñ‹Ð¹ Ð¾Ð±Ñ…Ð¾Ð´ Ð´ÐµÑ€ÐµÐ²Ð° Ð² Ð³Ð»ÑƒÐ±Ð¸Ð½Ñƒ
 {
 	if (root) 
 	{
@@ -140,10 +140,10 @@ Tree* Stack(List* list)
 {
 	Tree *elem;
 	if (list->head == NULL) return NULL;
-	elem = list->head;//Çàïîìèíàåì ãîëîâó
-	list->head = list->head->next;//Ñîçäàåì íîâóþ ãîëîâó
-	if (list->head) list->head->prev = NULL;//Îáðûâàåì ñâÿçü ìåæäó ñòàðîé è íîâîé ãîëîâàìè
-	if (elem == list->tail) list->tail = NULL;//Åñëè ýëåìåíò áûë ïîñëåäíèì - óíè÷òîæàåì èç ñïèñêà
+	elem = list->head; //Ð—Ð°Ð¿Ð¾Ð¼Ð¸Ð½Ð°ÐµÐ¼ Ð³Ð¾Ð»Ð¾Ð²Ñƒ
+	list->head = list->head->next; //Ð¡Ð¾Ð·Ð´Ð°ÐµÐ¼ Ð½Ð¾Ð²ÑƒÑŽ Ð³Ð¾Ð»Ð¾Ð²Ñƒ
+	if (list->head) list->head->prev = NULL; //ÐžÐ±Ñ€Ñ‹Ð²Ð°ÐµÐ¼ ÑÐ²ÑÐ·ÑŒ Ð¼ÐµÐ¶Ð´Ñƒ ÑÑ‚Ð°Ñ€Ð¾Ð¹ Ð¸ Ð½Ð¾Ð²Ð¾Ð¹ Ð³Ð¾Ð»Ð¾Ð²Ð°Ð¼Ð¸
+	if (elem == list->tail) list->tail = NULL; //Ð•ÑÐ»Ð¸ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð±Ñ‹Ð» Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ð¼ - ÑƒÐ½Ð¸Ñ‡Ñ‚Ð¾Ð¶Ð°ÐµÐ¼ Ð¸Ð· ÑÐ¿Ð¸ÑÐºÐ°
 	list->size--;
 	return elem;
 }
@@ -167,11 +167,11 @@ void deleteStack(List** list)
 
 void Width(Tree *root) 
 {
-	List *list = makeStack();//Ñîçäàåì äâóñâÿçíûé ñïèñîê äëÿ ñòåêà
+	List *list = makeStack(); //Ð¡Ð¾Ð·Ð´Ð°ÐµÐ¼ Ð´Ð²ÑƒÑÐ²ÑÐ·Ð½Ñ‹Ð¹ ÑÐ¿Ð¸ÑÐ¾Ðº Ð´Ð»Ñ ÑÑ‚ÐµÐºÐ°
 	pushBack(list, root);
 	while (list->size != 0) 
 	{
-		Tree *tmp = (Tree*)Stack(list);//Ïîëó÷àåì 1 ýëåìåíò èç ñïèñêà
+		Tree *tmp = (Tree*)Stack(list); //ÐŸÐ¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ 1 ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð¸Ð· ÑÐ¿Ð¸ÑÐºÐ°
 		if (tmp) 
 		{
 			printf("%s(%d)\n", tmp->word, tmp->occurence);
